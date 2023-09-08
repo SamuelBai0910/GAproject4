@@ -11,8 +11,8 @@ export default function NavBar({ user, setUser }) {
     <nav>
       <Link to='/' className='logo'>MyBlog</Link>
       <header>
-        <span className='headerA'>Welcome, {user.name}</span>
-        <Link className='headerA' to="" onClick={handleLogOut}>Log Out</Link>
+        <Link className='headerA' to="/create">Create new post</Link>
+        <Link className='headerA' to="" onClick={handleLogOut}>Log Out ({user.name})</Link>
       </header>
     </nav>
   );
