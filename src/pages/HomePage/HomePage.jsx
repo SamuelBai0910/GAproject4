@@ -13,7 +13,7 @@ export default function HomePage() {
               <span className="author">Samuel Bai</span>
               <time>2023-09-10 10:45</time>
             </p>
-            <p className='summary'>Until last month the brics, a diplomatic club which comprises Brazil, Russia, India, China and South Africa, had members from every corner of the developing world except the Middle East. </p>
+            <p className='summary'>Until last month the brics, a diplomatic club which comprises Brazil, Russia, India, China and South Africa, had members from every corner of the developing world except the Middle East. Until last month the brics, a diplomatic club which comprises Brazil, Russia, India, China and South Africa, had members from every corner of the developing world except the Middle East.</p>
           </div>
         </div>
         <div className='post'>
