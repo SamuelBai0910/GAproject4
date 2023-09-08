@@ -9,7 +9,7 @@ export default function NavBar({ user, setUser }) {
 
   return (
     <nav>
-      <a href="" className='logo'>MyBlog</a>
+      <Link to='/' className='logo'>MyBlog</Link>
       <header>
         <span className='headerA'>Welcome, {user.name}</span>
         <Link className='headerA' to="" onClick={handleLogOut}>Log Out</Link>
