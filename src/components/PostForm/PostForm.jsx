@@ -1,45 +1,39 @@
-// import ReactQuill from 'react-quill';
-// import 'react-quill/dist/quill.snow.css';
 import { useState } from 'react';
 
-// React-Quill upload options
-// const modules = {
-//   toolbar: [
-//     [{ 'header': [1, 2, false] }],
-//     ['bold', 'italic', 'underline','strike', 'blockquote'],
-//     [{'list': 'ordered'}, {'list': 'bullet'}, {'indent': '-1'}, {'indent': '+1'}],
-//     ['link', 'image'],
-//     ['clean']
-//   ],
-// };
-
-// const formats = [
-//   'header',
-//   'bold', 'italic', 'underline', 'strike', 'blockquote',
-//   'list', 'bullet', 'indent',
-//   'link', 'image'
-// ];
-
-export default function CreatePostPage( {addPost, uploadImage, image, setImage, url} ) {
+export default function PostForm({ addPost, image, setImage }) {
+  const [url, setUrl] = useState("");
   const [newPost, setNewPost] = useState({
     title: '',
     summary: '',
     content: '',
-    image: null,
+    image: ''
   });
+  // React upload img with cloudinary
+  const uploadImage = () => {
+    const data = new FormData()
+    data.append("file", image)
+    data.append("upload_preset", "cloudinaryUpload")
+    data.append("cloud_name", "dfbujyfrj")
+    return fetch(" https://api.cloudinary.com/v1_1/dfbujyfrj/image/upload",{
+			method: "post",
+			body: data
+		}).then(res => res.json())
+      .catch(err => console.log(err))
+	}
 
-  // for react quill
-  // const handleContentChange = (value) => {
-  //   setNewPost({
-  //     ...newPost,
-  //     content: value,
-  //   });
-  // };
+  const _handleChange = (e) => {
+    setNewPost({
+        ...newPost,
+        [e.target.name]: e.target.value,
+    });
+  }
 
-  const _handleSubmit = (e) => {
+  async function _handleSubmit(e) {
     e.preventDefault();
+    const data = await uploadImage(url);
+    newPost.image = data.url;
     addPost(newPost);
-    uploadImage(image);
+    console.log(newPost)
     setNewPost({
       title: '',
       summary: '',
@@ -49,24 +43,23 @@ export default function CreatePostPage( {addPost, uploadImage, image, setImage, 
   }
 
   return(
-    <form onSubmit={_handleSubmit} action="">
-      <input placeholder={'Title'} 
-             value={newPost.title} 
-             onChange={(e) => setNewPost({ ...newPost, title: e.target.value })} />
-      <input placeholder={'Summary'}
-             value={newPost.summary}
-             onChange={(e) => setNewPost({ ...newPost, summary: e.target.value })} />
-      <input type="file"
-             value={newPost.image}
-             onChange={(e) => setImage(e.target.files[0])} />
-      <textarea placeholder={'Content'}
+    <form onSubmit={_handleSubmit}>
+      <input  name='title'
+              placeholder={'Title'} 
+              value={newPost.title} 
+              onChange={_handleChange} />
+      <input  name='summary'
+              placeholder={'Summary'}
+              value={newPost.summary}
+              onChange={_handleChange} />
+      <textarea name='content'
+                placeholder={'Content'}
                 value={newPost.content} 
-                onChange={(e) => setNewPost({ ...newPost, content: e.target.value })} ></textarea>
-      {/* <ReactQuill 
-        modules={modules}
-        formats={formats}
-        value={newPost.content}
-        onChange={handleContentChange} /> */}
+                onChange={_handleChange} ></textarea>
+      <input  name='image'
+              type="file"
+              value={newPost.image}
+              onChange={(e) => setImage(e.target.files[0])} />
       <button>Create Post</button>
       <img src={url} alt="" />
     </form>
