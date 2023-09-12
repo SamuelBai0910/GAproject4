@@ -8,19 +8,24 @@ export default function PostsList ({posts}) {
     }
 
     const postsList = posts.map((n) => (
-        <div key={n._id}>
-            <p>
-                { new Date(n.createdAt).toLocaleString() }:
-            </p>
-            <p>
-                { n.text }
-            </p>
-        </div>
+      <div className='post'>
+      <div className="image">
+        <img src={ n.image } alt="" />
+      </div>
+      <div className="texts">
+        <h2>{ n.title }</h2>
+        <p className="info">
+          <span className="author">Samuel Bai</span>
+          <time>{ new Date(n.createdAt).toLocaleString() }</time>
+        </p>
+        <p className='summary'>{ n.summary}</p>
+      </div>
+    </div>
     ));
 
     return (
-        <div>
-            {postsList}
-        </div>
+      <div>
+      { postsList }
+      </div>
     )
 }
