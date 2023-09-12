@@ -61,7 +61,7 @@ export default function PostForm({ addPost, image, setImage }) {
               value={newPost.image}
               onChange={(e) => setImage(e.target.files[0])} />
       <button>Create Post</button>
-      <img src={url} alt="" />
+      {/* <img src={url} alt="" /> */}
     </form>
   )
 }
