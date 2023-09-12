@@ -1,21 +1,19 @@
-import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css';
 import './CreatePostPage.css';
+import PostForm from '../../components/PostForm/PostForm';
+import * as postsService from '../../utilities/posts-service';
 import { useState } from 'react';
 
-export default function CreatePostPage() {
-  const [title, setTitle] = useState('');
-  const [summary, setSummary] = useState('');
-  const [content, setcontent] = useState('');
-  // React upload img with cloudinary
+export default function CreatePostPage( {posts, setPosts}) {
+  // Function to upload an image
   const [image, setImage ] = useState("");
   const [url, setUrl] = useState("");
+
+  // React upload img with cloudinary
   const uploadImage = (e) => {
     const data = new FormData()
     data.append("file", image)
     data.append("upload_preset", "cloudinaryUpload")
     data.append("cloud_name", "dfbujyfrj")
-    e.preventDefault();
     fetch(" https://api.cloudinary.com/v1_1/dfbujyfrj/image/upload",{
     method:"post",
     body: data
@@ -26,23 +24,37 @@ export default function CreatePostPage() {
     })
     .catch(err => console.log(data))
   }
+
+  async function addPost(newPostData) {
+    try {
+      // Upload image
+      const imageUrl = await uploadImage(newPostData.image);
+
+      // Create new post
+      const newPost = {
+        title: newPostData.title,
+        summary: newPostData.summary,
+        content: newPostData.content,
+        image: imageUrl,
+      };
+
+      // Make the API call to create the post
+      const createdPost = await postsService.createPost(newPost);
+
+      // Update the posts state with the new post
+      setPosts([...posts, createdPost]);
+
+      // Reset the form fields
+      // (You should also reset the image state if needed)
+      newPostData.title = '';
+      newPostData.summary = '';
+      newPostData.content = '';
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   return(
-    <form onSubmit={uploadImage} action="">
-      <input type="title" 
-             placeholder={'Title'} 
-             value={title} 
-             onChange={e => setTitle(e.target.value)} />
-      <input type="summary" 
-             placeholder={'Summary'}
-             value={summary}
-             onChange={e => setSummary(e.target.value)} />
-      <input type="file"
-             onChange= {(e)=> setImage(e.target.files[0])} />
-      <ReactQuill 
-        value={content}
-        onChange={e => setcontent(e.target.value)} />
-      <button>Create Post</button>
-      <img src={url} alt="" />
-    </form>
+    <PostForm addPost={addPost} url={url} image={image} setImage={setImage} uploadImage={uploadImage} />
   )
 }

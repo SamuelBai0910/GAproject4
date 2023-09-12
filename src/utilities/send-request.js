@@ -1,19 +1,30 @@
+// AJAX-Bottom-Axios
 import { getToken } from './users-service';
 
 export default async function sendRequest(url, method = "GET", payload = null) {
     // Fetch accepts an options object as the 2nd argument
     // used to include a data payload, set the headers. specifify the method, etc.
+    // const options = {
+    //   method: method
+    // };
     const options = { method };
+    // payload = null or undefined?
     if (payload) {
         options.headers = { 'Content-Type': 'application/json'};
         options.body = JSON.stringify(payload);
     }
     const token = getToken();
+    // token = null or undefined?
     if (token) {
         // Ensure the headers object exists
         options.headers = options.headers || {};
         // Add token to an Authorization header
         // Prefacing with 'Bearer' is recommended in the HTTP specification
+        // options = {
+        //   headers: {
+        //     Authorization: 'Bearer ${token}' 
+        //   }
+        // }
         options.headers.Authorization = `Bearer ${token}`;
     }
     const res = await fetch(url, options);

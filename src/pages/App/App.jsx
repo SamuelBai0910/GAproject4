@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { getUser } from '../../utilities/users-service';
 import './App.css';
@@ -6,9 +6,17 @@ import AuthPage from '../AuthPage/AuthPage';
 import NavBar from '../../components/NavBar/NavBar';
 import HomePage from '../HomePage/HomePage';
 import CreatePostPage from '../CreatePostPage/CreatePostPage';
+import * as postsService from '../../utilities/posts-service';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    postsService.getPosts().then((posts) => {
+        setPosts(posts);
+    });
+  }, []);
 
   return (
     <main className="App">
@@ -19,7 +27,7 @@ export default function App() {
               {/* Route components in here */}
               <Route path="/" element={<HomePage />} />
               <Route path="*" element={<Navigate to="/" />} />
-              <Route path="/create" element={<CreatePostPage />} />
+              <Route path="/create" element={<CreatePostPage posts={posts} setPosts={setPosts} />} />
             </Routes>
           </>
           :

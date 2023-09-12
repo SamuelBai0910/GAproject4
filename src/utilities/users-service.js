@@ -27,8 +27,13 @@ export function getToken() {
   // getItem will return null if the key does not exists
   const token = localStorage.getItem('token');
   if (!token) return null;
+  // 3 parts of JWT : Header, Payload, Signature
+  // const encoded = btoa('hello world');  encodes to base64
+  // const decoded = atob(encoded);  decodes back to 'hello world'
+  // parse translate the JSON data to the data that can use JS mothod
   const payload = JSON.parse(atob(token.split('.')[1]));
   // A JWT's exp is expressed in seconds, not miliseconds
+  // exp: expiration time of JWT
   if (payload.exp * 1000 < Date.now()) {
     // Token has expired
     localStorage.removeItem('token');
