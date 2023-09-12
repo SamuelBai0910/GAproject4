@@ -13,7 +13,11 @@ input, textarea {
   background-color: #fff;
 }
 
-textarea {
+.summary_text {
+  min-height: 150px;
+}
+
+.content_text {
   min-height: 300px;
 }
 

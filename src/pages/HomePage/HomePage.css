@@ -7,6 +7,7 @@
 img {
   max-width: 100%;
   height: 220px;
+  object-fit: cover;
 }
 
 div.post {
@@ -41,7 +42,7 @@ div.post p.info a.author {
 }
 
 div.post p.summary {
-  height: 100px;
+  height: 120px;
   margin: 10px 0;
   line-height: 1.5rem;
   text-overflow: ellipsis;
