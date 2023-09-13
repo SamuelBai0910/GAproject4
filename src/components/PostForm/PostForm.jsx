@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 
 export default function PostForm({ addPost, image, setImage }) {
   const [url, setUrl] = useState("");
@@ -8,6 +9,7 @@ export default function PostForm({ addPost, image, setImage }) {
     content: '',
     image: ''
   });
+  const navigate = useNavigate();
   // React upload img with cloudinary
   const uploadImage = () => {
     const data = new FormData()
@@ -33,13 +35,13 @@ export default function PostForm({ addPost, image, setImage }) {
     const data = await uploadImage(url);
     newPost.image = data.url;
     addPost(newPost);
-    console.log(newPost)
     setNewPost({
       title: '',
       summary: '',
       content: '',
       image: '',
     });
+    navigate(`/posts`);
   }
 
   return(
