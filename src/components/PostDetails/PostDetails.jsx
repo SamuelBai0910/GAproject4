@@ -17,7 +17,9 @@ export default function PostDetail ({ posts, setPosts, user }) {
     <div className="post-container">
       <div key={post._id} className="post-page">
         <h1>{ post.title }</h1>
-        <time>{ new Date(post.createdAt).toLocaleString() }</time>
+        <time>
+          { new Date(post.createdAt).toLocaleString() }
+        </time>
         <span className="author">by { user.name }</span>
         <div className="btn-container">
           <div className="edit-row">
