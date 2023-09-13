@@ -1,8 +1,17 @@
-import { useParams } from "react-router-dom"
+import { useParams, useNavigate } from "react-router-dom"
+import * as postsService from '../../utilities/posts-service';
 
 export default function PostDetail ({ posts, setPosts, user }) {
   const { id } = useParams();
   const post = posts.find((p) => p._id === id);
+  const navigate = useNavigate();
+
+  async function deletePost(id) {
+    await postsService.deletePost(id);
+    const postsAfterDelete = posts.filter((n) => n._id !== id);
+    setPosts(postsAfterDelete);
+    navigate('/posts');
+}
 
   return (
   <div className="post-container">
@@ -10,6 +19,11 @@ export default function PostDetail ({ posts, setPosts, user }) {
       <h1>{ post.title }</h1>
       <time>{ new Date(post.createdAt).toLocaleString() }</time>
       <span className="author">by { user.name }</span>
+      <div>
+        <button className="delete-btn"
+          onClick={ () => deletePost(post._id) }
+        >Delete this post</button>
+      </div>
       <div className="image">
         <img src={post.image} alt="" />
       </div>

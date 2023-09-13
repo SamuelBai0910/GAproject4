@@ -74,3 +74,8 @@ div.post-page .author {
 div.post-page div.content p {
   line-height: 1.6rem;
 }
+
+.delete-btn {
+  width: 120px;
+  margin-bottom: 5px;
+}

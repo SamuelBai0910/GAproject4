@@ -15,3 +15,8 @@ export async function getPostDetails(id) {
   const note = await postsAPI.getPost(id);
   return note;
 }
+
+export async function deletePost(id) {
+  await postsAPI.deletePost(id);
+  return true;
+}

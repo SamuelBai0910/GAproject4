@@ -13,3 +13,8 @@ export async function createPost(post) {
 export async function getPost(id) {
   return sendRequest(`${ BASE_URL }/${ id }`);
 }
+
+export async function deletePost(id) {
+  console.log('delete')
+  return sendRequest(`${ BASE_URL }/${ id }`, 'DELETE');
+}

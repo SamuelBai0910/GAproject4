@@ -4,6 +4,7 @@ module.exports = {
     index,
     show,
     create,
+    delete: deletePost,
 };
 
 async function index(req, res) {
@@ -17,8 +18,8 @@ async function index(req, res) {
 
 async function show(req, res) {
   try {
-      const note = await Note.findById(req.params.id);
-      res.json(note);
+      const post = await Post.findById(req.params.id);
+      res.json(post);
   } catch (err) {
       res.status(400).json(err);
   }
@@ -37,4 +38,14 @@ async function create(req, res) {
     } catch (err) {
         res.status(400).json(err);
     }
+}
+
+async function deletePost(req, res) {
+  try {
+      await Post.deleteOne({_id: req.params.id, user: req.user._id});
+      console.log('delete');
+      res.json(true);
+  } catch (err) {
+      res.status(400).json(err);
+  }
 }
