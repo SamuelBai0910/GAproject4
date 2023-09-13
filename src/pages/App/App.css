@@ -19,6 +19,16 @@ nav a, .headerA {
   color: inherit;
 }
 
+.headerA{
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.headerA svg {
+  height: 20px;
+}
+
 nav .logo {
   font-weight: bold;
   font-size: 1.5rem;
