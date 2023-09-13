@@ -1,13 +1,13 @@
 import { useState } from 'react';
+import { useParams, useNavigate } from "react-router-dom";
 
-export default function PostForm({ addPost, image, setImage }) {
+export default function EditPostForm({ posts, updatePost, image ,setImage }) {
+  let { id } = useParams();
+  console.log(posts);
+  const post = posts.find((p) => p._id === id);
   const [url, setUrl] = useState("");
-  const [newPost, setNewPost] = useState({
-    title: '',
-    summary: '',
-    content: '',
-    image: ''
-  });
+  const [editedPost, setEditedPost] = useState(post);
+  const navigate = useNavigate();
   // React upload img with cloudinary
   const uploadImage = () => {
     const data = new FormData()
@@ -21,48 +21,42 @@ export default function PostForm({ addPost, image, setImage }) {
       .catch(err => console.log(err))
 	}
 
-  const _handleChange = (e) => {
-    setNewPost({
-        ...newPost,
-        [e.target.name]: e.target.value,
-    });
+  function _handleChange(e) {
+    setEditedPost({
+        ...editedPost,
+        [e.target.name]: e.target.value
+    })
   }
 
   async function _handleSubmit(e) {
     e.preventDefault();
-    const data = await uploadImage(url);
-    newPost.image = data.url;
-    addPost(newPost);
-    console.log(newPost)
-    setNewPost({
-      title: '',
-      summary: '',
-      content: '',
-      image: '',
-    });
+    // const data = await uploadImage(url);
+    // editedPost.image = data.url;
+    updatePost(editedPost);
+    navigate('/posts');
   }
 
   return(
     <form onSubmit={_handleSubmit}>
-      <h1>Create Form</h1>
+      <h1>Edit Form</h1>
       <input  name='title'
               placeholder={'Title'} 
-              value={newPost.title} 
+              value={editedPost.title} 
               onChange={_handleChange} />
       <textarea className='summary_text'
                 name='summary'
                 placeholder={'Summary'}
-                value={newPost.summary}
+                value={editedPost.summary}
                 onChange={_handleChange} ></textarea>
       <textarea className='content_text'
                 name='content'
                 placeholder={'Content'}
-                value={newPost.content} 
+                value={editedPost.content} 
                 onChange={_handleChange} ></textarea>
-      <input  name='image'
+      {/* <input  name='image'
               type="file"
-              value={newPost.image}
-              onChange={(e) => setImage(e.target.files[0])} />
+              value={editedPost.image}
+              onChange={(e) => setImage(e.target.files[0])} /> */}
       <button>Create Post</button>
     </form>
   )

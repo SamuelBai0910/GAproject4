@@ -5,6 +5,7 @@ module.exports = {
     show,
     create,
     delete: deletePost,
+    update
 };
 
 async function index(req, res) {
@@ -46,6 +47,16 @@ async function deletePost(req, res) {
       console.log('delete');
       res.json(true);
   } catch (err) {
+      res.status(400).json(err);
+  }
+}
+
+async function update(req, res) {
+  try {
+      let post = await Post.findByIdAndUpdate(req.params.id, req.body)
+      post.save();
+  } catch (err) {
+      console.log(err)
       res.status(400).json(err);
   }
 }

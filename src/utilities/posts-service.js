@@ -12,11 +12,16 @@ export async function createPost(postText) {
 }
 
 export async function getPostDetails(id) {
-  const note = await postsAPI.getPost(id);
-  return note;
+  const post = await postsAPI.getPost(id);
+  return post;
 }
 
 export async function deletePost(id) {
   await postsAPI.deletePost(id);
   return true;
+}
+
+export async function updatePost(id) {
+  const post = await postsAPI.updatePost(id);
+  return post;
 }

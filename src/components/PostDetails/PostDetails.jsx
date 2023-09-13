@@ -1,4 +1,4 @@
-import { useParams, useNavigate } from "react-router-dom"
+import { useParams, useNavigate, Link } from "react-router-dom"
 import * as postsService from '../../utilities/posts-service';
 
 export default function PostDetail ({ posts, setPosts, user }) {
@@ -14,7 +14,7 @@ export default function PostDetail ({ posts, setPosts, user }) {
 }
 
   return (
-  <div className="post-container">
+    <div className="post-container">
     <div key={post._id} className="post-page">
       <h1>{ post.title }</h1>
       <time>{ new Date(post.createdAt).toLocaleString() }</time>
@@ -24,6 +24,9 @@ export default function PostDetail ({ posts, setPosts, user }) {
           onClick={ () => deletePost(post._id) }
         >Delete this post</button>
       </div>
+      <Link to={ `/posts/${post._id}/edit` }>
+         Edit Post
+      </Link>
       <div className="image">
         <img src={post.image} alt="" />
       </div>

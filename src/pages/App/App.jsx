@@ -8,6 +8,7 @@ import * as postsService from '../../utilities/posts-service';
 import HomePage from '../HomePage/HomePage';
 import CreatePostPage from '../CreatePostPage/CreatePostPage';
 import PostDetails from '../../components/PostDetails/PostDetails';
+import EditPostPage from '../EditPostPage/EditPostPage';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -30,6 +31,7 @@ export default function App() {
               <Route path="*" element={<Navigate to="/" />} />
               <Route path="/create" element={<CreatePostPage posts={posts} setPosts={setPosts} />} />
               <Route path="/posts/:id" element={<PostDetails posts={posts} setPosts={setPosts} user={user} />} />
+              <Route path="/posts/:id/edit" element={<EditPostPage posts={posts} setPosts={setPosts} />} />
             </Routes>
           </>
           :

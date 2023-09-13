@@ -18,3 +18,8 @@ export async function deletePost(id) {
   console.log('delete')
   return sendRequest(`${ BASE_URL }/${ id }`, 'DELETE');
 }
+
+export async function updatePost(post) {
+  console.log(`${ BASE_URL }/${ post._id }`)
+  return sendRequest(`${ BASE_URL }/${ post._id }`, 'PUT', post);
+}

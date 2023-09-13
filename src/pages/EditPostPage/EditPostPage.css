@@ -1,0 +1,39 @@
+form {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+input, textarea {
+  display: block;
+  margin-bottom: 5px;
+  width: 100%;
+  padding: 5px 7px;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.summary_text {
+  min-height: 150px;
+}
+
+.content_text {
+  min-height: 300px;
+}
+
+button {
+  width: 100%;
+  display: block;
+  background-color: #555;
+  border: 0;
+  color: #fff;
+  border-radius: 5px;
+  padding: 7px 0;
+  margin-top: 5px;
+}
+
+button:active {
+  box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.24);
+  transform: translateY(4px);
+}
+
