@@ -29,7 +29,7 @@ export default function App() {
               <Route path="/" element={<HomePage user={user} />} />
               <Route path="*" element={<Navigate to="/" />} />
               <Route path="/create" element={<CreatePostPage posts={posts} setPosts={setPosts} />} />
-              <Route path="/posts/:id" element={<PostDetails posts={posts} setPosts={setPosts} />} />
+              <Route path="/posts/:id" element={<PostDetails posts={posts} setPosts={setPosts} user={user} />} />
             </Routes>
           </>
           :

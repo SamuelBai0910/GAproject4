@@ -5,7 +5,7 @@
 /* CSS for NavBar */
 nav {
   padding: 10px;
-  max-width: 700px;
+  max-width: 960px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -29,3 +29,48 @@ header {
   gap: 15px;
 }
 
+/* CSS for PostDetais.jsx */
+div.post-container {
+  display: flex;
+  justify-content: center;
+}
+
+div.post-page {
+  max-width: 960px;
+}
+
+div.post-page div.image{
+  max-height: 200px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+div.post-page div.image img{
+  object-fit: cover;
+  object-position: center center;
+  width: 100%;
+}
+
+div.post-page h1 {
+  text-align: center;
+  margin: 10px 0 5px ;
+}
+
+div.post-page time {
+  text-align: center;
+  display: block;
+  font-size: .7rem;
+}
+
+div.post-page .author {
+  text-align: center;
+  display: block;
+  margin-bottom: 20px;
+  font-size: .7rem;
+  font-weight: bold;
+}
+
+div.post-page div.content p {
+  line-height: 1.6rem;
+}
