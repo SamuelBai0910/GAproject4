@@ -32,6 +32,13 @@ nav a, .headerA {
 nav .logo {
   font-weight: bold;
   font-size: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+nav .logo svg {
+  height: 20px;
 }
 
 header {
@@ -91,14 +98,17 @@ div.delete-row {
 }
 
 .delete-btn {
-  width: 150px;
+  width: 170px;
   margin-bottom: 5px;
   padding: 15px 15px;
   background-color: #333;
   display: inline-flex;
+  justify-content: center;
   align-items: center;
   justify-content: center;
   gap: 5px;
+  font-weight: bold;
+  font-size: .9rem;
 }
 
 .delete-btn svg {
