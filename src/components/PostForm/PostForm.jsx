@@ -61,7 +61,6 @@ export default function PostForm({ addPost, image, setImage }) {
                 onChange={_handleChange} ></textarea>
       <input  name='image'
               type="file"
-              value={newPost.image}
               onChange={(e) => setImage(e.target.files[0])} />
       <button>Create Post</button>
     </form>

@@ -5,7 +5,6 @@ export default function EditPostForm({ posts, updatePost, image ,setImage }) {
   let { id } = useParams();
   console.log(posts);
   const post = posts.find((p) => p._id === id);
-  const [url, setUrl] = useState("");
   const [editedPost, setEditedPost] = useState(post);
   const navigate = useNavigate();
   // React upload img with cloudinary
@@ -30,10 +29,10 @@ export default function EditPostForm({ posts, updatePost, image ,setImage }) {
 
   async function _handleSubmit(e) {
     e.preventDefault();
-    // const data = await uploadImage(url);
-    // editedPost.image = data.url;
+    const data = await uploadImage();
+    editedPost.image = data.url;
     updatePost(editedPost);
-    navigate('/posts');
+    navigate(`/posts/${post._id}`);
   }
 
   return(
@@ -53,11 +52,10 @@ export default function EditPostForm({ posts, updatePost, image ,setImage }) {
                 placeholder={'Content'}
                 value={editedPost.content} 
                 onChange={_handleChange} ></textarea>
-      {/* <input  name='image'
+      <input  name='image'
               type="file"
-              value={editedPost.image}
-              onChange={(e) => setImage(e.target.files[0])} /> */}
-      <button>Create Post</button>
+              onChange={(e) => setImage(e.target.files[0])} />
+      <button>Update Post</button>
     </form>
   )
 }
