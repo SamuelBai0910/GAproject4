@@ -18,7 +18,7 @@ div.post {
 
 @media screen and (min-width: 700px) {
   div.post {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 0.9fr 1.1fr;
   }
 }
 
@@ -46,9 +46,9 @@ div.post p.info a.author {
 }
 
 div.post p.summary {
-  height: 130px;
-  margin: 5px 0;
-  line-height: 1.7rem;
+  height: 136px;
+  margin: 4px 0;
+  line-height: 1.75rem;
   text-overflow: ellipsis;
   overflow: hidden;
 }
