@@ -2,6 +2,7 @@ const Post = require('../../models/post');
 
 module.exports = {
     index,
+    show,
     create,
 };
 
@@ -12,6 +13,15 @@ async function index(req, res) {
     } catch (err) {
         res.status(400).json(err);
     }
+}
+
+async function show(req, res) {
+  try {
+      const note = await Note.findById(req.params.id);
+      res.json(note);
+  } catch (err) {
+      res.status(400).json(err);
+  }
 }
 
 async function create(req, res) {

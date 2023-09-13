@@ -12,7 +12,6 @@ export default function HomePage({ user }) {
         setPosts(posts);
     });
   }, []);
-
   return(
     <div className='HomePageMain'>
         {/* <PostDetails />

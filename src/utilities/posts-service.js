@@ -10,3 +10,8 @@ export async function createPost(postText) {
     const newPost = await postsAPI.createPost(postText);
     return newPost;
 }
+
+export async function getPostDetails(id) {
+  const note = await postsAPI.getPost(id);
+  return note;
+}

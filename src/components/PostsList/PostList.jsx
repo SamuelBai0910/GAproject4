@@ -1,30 +1,27 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import PostDetails from '../../components/PostDetails/PostDetails';
 
 export default function PostsList ({ posts, user }) {
-    const [reverse, setReverse] = useState(false);
 
     if (posts.length === 0) {
         return <p>No posts yet!</p>
     }
 
-    const postsList = posts.map((n) => (
+    const postsList = posts.map((p) => (
       <div className='post'>
       <div className="image">
-        <Link to="/postDetail">
-          <img src={ n.image } alt="" />
+        <Link to={`/posts/${p._id}`}>
+          <img src={ p.image } alt="" />
         </Link>
       </div>
       <div className="texts">
-        <Link to="/postDetail">
-          <h2>{ n.title }</h2>
+        <Link to={`/posts/${p._id}`}>
+          <h2>{ p.title }</h2>
         </Link> 
         <p className="info">
           <span className="author">{ user.name }</span>
-          <time>{ new Date(n.createdAt).toLocaleString() }</time>
+          <time>{ new Date(p.createdAt).toLocaleString() }</time>
         </p>
-        <p className='summary'>{ n.summary}</p>
+        <p className='summary'>{ p.summary}</p>
       </div>
     </div>
     ));
