@@ -50,19 +50,23 @@ export default function PostForm({ addPost, image, setImage }) {
       <input  name='title'
               placeholder={'Title'} 
               value={newPost.title} 
+              required
               onChange={_handleChange} />
       <textarea className='summary_text'
                 name='summary'
                 placeholder={'Summary'}
                 value={newPost.summary}
+                required
                 onChange={_handleChange} ></textarea>
       <textarea className='content_text'
                 name='content'
                 placeholder={'Content'}
                 value={newPost.content} 
+                required
                 onChange={_handleChange} ></textarea>
       <input  name='image'
               type="file"
+              required
               onChange={(e) => setImage(e.target.files[0])} />
       <button>Create Post</button>
     </form>

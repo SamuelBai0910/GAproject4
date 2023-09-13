@@ -41,19 +41,23 @@ export default function EditPostForm({ posts, updatePost, image ,setImage }) {
       <input  name='title'
               placeholder={'Title'} 
               value={editedPost.title} 
+              required
               onChange={_handleChange} />
       <textarea className='summary_text'
                 name='summary'
                 placeholder={'Summary'}
                 value={editedPost.summary}
+                required
                 onChange={_handleChange} ></textarea>
       <textarea className='content_text'
                 name='content'
                 placeholder={'Content'}
                 value={editedPost.content} 
+                required
                 onChange={_handleChange} ></textarea>
       <input  name='image'
               type="file"
+              required
               onChange={(e) => setImage(e.target.files[0])} />
       <button>Update Post</button>
     </form>
