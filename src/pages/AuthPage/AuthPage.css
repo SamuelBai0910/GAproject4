@@ -1,6 +1,7 @@
 form.login, form.signup {
   max-width: 400px;
   margin: 0 auto;
+  font-family: 'Raleway', sans-serif;
 }
 
 input {
@@ -13,11 +14,11 @@ input {
   background-color: #fff;
 }
 
-.AuthPageButton {
+/* .AuthPageButton {
   width: 10%;
   background-color: #555;
   border: 0;
-  color: #fff;
+  color: #040404;
   border-radius: 5px;
   padding: 7px 0;
 }
@@ -30,8 +31,17 @@ input {
   color: #fff;
   border-radius: 5px;
   padding: 7px 0;
+} */
+
+.AuthPageButton {
+  width: 12%;
+}
+
+.formButton {
+  width: 100%;
 }
 
 form h1 {
   text-align: center;
+  font-family: 'Raleway', sans-serif;
 }
