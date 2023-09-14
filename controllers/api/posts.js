@@ -64,7 +64,6 @@ async function update(req, res) {
       {returnDocument: 'after'}
       )
     post.save();
-    // console.log(post);
     res.json(post);
   } catch (err) {
       console.log(err)

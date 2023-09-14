@@ -17,10 +17,6 @@ export default function App() {
   const [postId, setPostId] = useState(null);
 
   useEffect(() => {
-    // getPost(id);
-    // postsService.getPostDetails(id).then((post) => {
-      //   setPost(post);
-      // });
     async function getPost() {
       const post = await postsService.getPostDetails(postId);
       setPost(post);

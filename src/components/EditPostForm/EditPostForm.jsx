@@ -3,7 +3,6 @@ import { useParams, useNavigate } from "react-router-dom";
 
 export default function EditPostForm({ post, updatePost, image ,setImage }) {
   let { id } = useParams();
-  // const post = posts.find((p) => p._id === id);
   const [editedPost, setEditedPost] = useState(post);
   const navigate = useNavigate();
   // React upload img with cloudinary

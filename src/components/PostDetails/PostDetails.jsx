@@ -4,26 +4,11 @@ import { useState, useEffect } from "react";
 
 export default function PostDetail ({ posts, setPosts, post, setPostId, user }) {
   const { id } = useParams();
-  // const post = posts.find((p) => p._id === id);
-  // const [post, setPost] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
     setPostId(id);
   }, []);
-
-  // useEffect(() => {
-  //   // getPost(id);
-  //   // postsService.getPostDetails(id).then((post) => {
-  //     //   setPost(post);
-  //     // });
-  //   async function getPost() {
-  //     const post = await postsService.getPostDetails(id);
-  //     setPost(post);
-  //   }
-  //   getPost();
-  // }, [id]);
-  // console.log(post);
 
   async function deletePost(id) {
     await postsService.deletePost(id);
@@ -36,6 +21,12 @@ export default function PostDetail ({ posts, setPosts, post, setPostId, user }) 
     return (
       <div>loading...</div>
     );
+  }
+  // to translate an automated paragraph spacing 
+  function formatText(content) {
+    return content.split('\n').map((paragraph, index) => (
+      <p key={index}>{paragraph}</p>
+    ));
   }
 
   return (
@@ -70,7 +61,7 @@ export default function PostDetail ({ posts, setPosts, post, setPostId, user }) 
           <img src={post.image} alt="" />
         </div>
         <div className="content">
-          <p>{ post.content }</p>
+          <p>{ formatText( post.content )}</p>
         </div>
       </div>
     </div>
