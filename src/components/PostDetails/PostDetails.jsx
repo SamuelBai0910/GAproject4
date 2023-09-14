@@ -1,18 +1,42 @@
 import { useParams, useNavigate, Link } from "react-router-dom"
 import * as postsService from '../../utilities/posts-service';
+import { useState, useEffect } from "react";
 
-export default function PostDetail ({ posts, setPosts, user }) {
+export default function PostDetail ({ posts, setPosts, post, setPostId, user }) {
   const { id } = useParams();
-  const post = posts.find((p) => p._id === id);
-  console.log(posts);
+  // const post = posts.find((p) => p._id === id);
+  // const [post, setPost] = useState(null);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    setPostId(id);
+  }, []);
+
+  // useEffect(() => {
+  //   // getPost(id);
+  //   // postsService.getPostDetails(id).then((post) => {
+  //     //   setPost(post);
+  //     // });
+  //   async function getPost() {
+  //     const post = await postsService.getPostDetails(id);
+  //     setPost(post);
+  //   }
+  //   getPost();
+  // }, [id]);
+  // console.log(post);
 
   async function deletePost(id) {
     await postsService.deletePost(id);
     const postsAfterDelete = posts.filter((n) => n._id !== id);
     setPosts(postsAfterDelete);
     navigate('/posts');
-}
+  }
+
+  if (post === null) {
+    return (
+      <div>loading...</div>
+    );
+  }
 
   return (
     <div className="post-container">

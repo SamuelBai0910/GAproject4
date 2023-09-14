@@ -5,7 +5,7 @@ const ensureLoggedIn = require('../../config/ensureLoggedIn');
 
 router.get('/', ensureLoggedIn, postsController.index);
 router.post('/', ensureLoggedIn, postsController.create);
-router.post('/posts/:id', ensureLoggedIn, postsController.show);
+router.get('/:id', ensureLoggedIn, postsController.show);
 router.delete('/:id', ensureLoggedIn, postsController.delete);
 router.put('/:id', ensureLoggedIn, postsController.update);
 

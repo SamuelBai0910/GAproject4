@@ -1,3 +1,4 @@
+const post = require('../../models/post');
 const Post = require('../../models/post');
 
 module.exports = {
@@ -18,8 +19,10 @@ async function index(req, res) {
 }
 
 async function show(req, res) {
+  console.log("hihi");
   try {
       const post = await Post.findById(req.params.id);
+      console.log(post);
       res.json(post);
   } catch (err) {
       res.status(400).json(err);
@@ -52,11 +55,15 @@ async function deletePost(req, res) {
 }
 
 async function update(req, res) {
-  console.log(req.body);
+  console.log("another hello");
   try {
-      let post = await Post.findByIdAndUpdate(req.params.id, req.body)
-      post.save();
-      res.json(post);
+    let post = await Post.findByIdAndUpdate(
+      {_id: req.params.id}, 
+      {$set: req.body}
+      )
+    post.save();
+    // console.log(post);
+    res.json(post);
   } catch (err) {
       console.log(err)
       res.status(400).json(err);

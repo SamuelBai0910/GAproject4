@@ -90,6 +90,8 @@ div.post-page .author {
 
 div.post-page div.content p {
   line-height: 1.6rem;
+  text-align: justify;
+  font-size: 1.2rem;
 }
 
 div.btn-container {

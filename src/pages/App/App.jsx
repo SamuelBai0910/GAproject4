@@ -13,6 +13,21 @@ import EditPostPage from '../EditPostPage/EditPostPage';
 export default function App() {
   const [user, setUser] = useState(getUser());
   const [posts, setPosts] = useState([]);
+  const [post, setPost] = useState(null);
+  const [postId, setPostId] = useState(null);
+
+  useEffect(() => {
+    // getPost(id);
+    // postsService.getPostDetails(id).then((post) => {
+      //   setPost(post);
+      // });
+    async function getPost() {
+      const post = await postsService.getPostDetails(postId);
+      setPost(post);
+    }
+
+    if (postId !== null) {getPost()}
+  }, [postId]);
 
   useEffect(() => {
     postsService.getPosts().then((posts) => {
@@ -30,8 +45,9 @@ export default function App() {
               <Route path="/" element={<HomePage posts={posts} user={user} />} />
               <Route path="*" element={<Navigate to="/" />} />
               <Route path="/create" element={<CreatePostPage posts={posts} setPosts={setPosts} />} />
-              <Route path="/posts/:id" element={<PostDetails posts={posts} setPosts={setPosts} user={user} />} />
-              <Route path="/posts/:id/edit" element={<EditPostPage posts={posts} setPosts={setPosts} />} />
+              <Route path="/posts/:id" element={<PostDetails posts={posts} setPosts={setPosts} post={post} setPost={setPost} user={user} postId={postId}
+              setPostId={setPostId} />} />
+              <Route path="/posts/:id/edit" element={<EditPostPage post={post} setPost={setPost} />} />
             </Routes>
           </>
           :

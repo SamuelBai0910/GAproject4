@@ -3,7 +3,7 @@ import EditPostForm from '../../components/EditPostForm/EditPostForm';
 import * as postsService from '../../utilities/posts-service';
 import { useState } from 'react';
 
-export default function EditPostPage( {posts, setPosts} ) {
+export default function EditPostPage( {post, setPost} ) {
   // Function to upload an image
   const [image, setImage ] = useState("");
 
@@ -12,12 +12,12 @@ export default function EditPostPage( {posts, setPosts} ) {
       // Make the API call to create the post
       const editedPost = await postsService.updatePost(post);
       // Update the posts state with the new post
-      setPosts(editedPost);
+      setPost(editedPost);
     } catch (error) {
       console.error(error);
     }
   }
   return(
-    <EditPostForm posts={posts} updatePost={updatePost} image={image} setImage={setImage} />
+    <EditPostForm post={post} updatePost={updatePost} image={image} setImage={setImage} />
   )
 }

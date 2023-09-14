@@ -6,7 +6,7 @@ import { useState } from 'react';
 export default function CreatePostPage( {posts, setPosts}) {
   // Function to upload an image
   const [image, setImage ] = useState("");
-
+  console.log(posts);
   async function addPost(post) {
     try {
       // Make the API call to create the post
