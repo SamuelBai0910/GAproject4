@@ -6,7 +6,18 @@ Lorem ipsum dolor sit amet, te doctus iuvaret eos, vel essent facilisi ea. Nam i
 ## What can this Blog do?
 Lorem ipsum dolor sit amet, te doctus iuvaret eos, vel essent facilisi ea. Nam ignota tractatos consulatu ea, eum facete tacimates iracundia te. Sea et omnis constituto. Eu aeque adipisci aliquando duo, sea paulo concludaturque an, adipisci recteque ea qui. At sit enim sapientem, est veri nobis scribentur ex, purto singulis ut sea.
 ## Screenshots:
-![Create Room](https://images.unsplash.com/photo-1682686579688-c2ba945eda0e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2940&q=80)
+### SignUp Page
+![SignUp Page](https://res.cloudinary.com/dfbujyfrj/image/upload/v1694695571/signup_ffixnu.png)
+### Login Page
+![Login Page](https://res.cloudinary.com/dfbujyfrj/image/upload/v1694695571/login_bxtkif.png)
+### Posts List Page
+![Posts List Page](https://res.cloudinary.com/dfbujyfrj/image/upload/v1694695572/postsList_lxoqqx.png)
+### Create Post Page
+![Create Post Page](https://res.cloudinary.com/dfbujyfrj/image/upload/v1694695571/create_form_siyc5e.png)
+### Post Detail Page
+![Post Detail Page](https://res.cloudinary.com/dfbujyfrj/image/upload/v1694695572/PostDetail_q6rrq7.png))
+### Edit Post Page
+![Edit Post Page](https://res.cloudinary.com/dfbujyfrj/image/upload/v1694695572/Edit_Form_dhmgfg.png)
 
 # Technologies Used:
 
