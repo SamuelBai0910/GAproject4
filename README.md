@@ -69,5 +69,5 @@ This blog web application aims to provide a user-friendly interface that encoura
 # Next Steps:
 * After logging in, Users can see posts created by all users.
 * Users can only edit and delet the posts they've created.
-* Users can view all the posts created by themselfs in "My Posts"
-* Deploy this App
+* Users can view all the posts created by themselfs in "My Posts".
+* Deploy this App.
