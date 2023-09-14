@@ -118,9 +118,11 @@ div.delete-row {
   display: inline-flex;
   justify-content: center;
   align-items: center;
+  width: 120px;
   --b: 3px;   /* border thickness */
   --s: .45em; /* size of the corner */
   --color: #373B44;
+  margin-left: 20px;
   margin-bottom: 24px;
   padding: calc(.5em + var(--s)) calc(.9em + var(--s));
   color: var(--color);
@@ -143,6 +145,7 @@ div.delete-row {
   --_p: 0px;
   outline-color: var(--color);
   outline-offset: .05em;
+  cursor: pointer;
 }
 
 .delete-btn:active {
