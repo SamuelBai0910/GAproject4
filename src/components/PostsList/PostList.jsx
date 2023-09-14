@@ -18,8 +18,8 @@ export default function PostsList ({ posts, user }) {
             <h2>{ p.title }</h2>
           </Link> 
           <p className="info">
-            <span className="author">{ user.name }</span>
-            <time>{ new Date(p.createdAt).toLocaleString() }</time>
+            <span id='author-font' className="author">{ user.name }</span>
+            <time id='time-font'>{ new Date(p.createdAt).toLocaleString() }</time>
           </p>
           <p className='summary'>{ p.summary}</p>
         </div>

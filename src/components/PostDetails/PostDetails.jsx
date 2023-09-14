@@ -1,6 +1,6 @@
 import { useParams, useNavigate, Link } from "react-router-dom"
 import * as postsService from '../../utilities/posts-service';
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 
 export default function PostDetail ({ posts, setPosts, post, setPostId, user }) {
   const { id } = useParams();
