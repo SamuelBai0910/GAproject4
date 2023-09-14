@@ -4,6 +4,7 @@ import * as postsService from '../../utilities/posts-service';
 export default function PostDetail ({ posts, setPosts, user }) {
   const { id } = useParams();
   const post = posts.find((p) => p._id === id);
+  console.log(posts);
   const navigate = useNavigate();
 
   async function deletePost(id) {

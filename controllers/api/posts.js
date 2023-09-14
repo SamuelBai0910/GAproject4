@@ -52,9 +52,11 @@ async function deletePost(req, res) {
 }
 
 async function update(req, res) {
+  console.log(req.body);
   try {
       let post = await Post.findByIdAndUpdate(req.params.id, req.body)
       post.save();
+      res.json(post);
   } catch (err) {
       console.log(err)
       res.status(400).json(err);

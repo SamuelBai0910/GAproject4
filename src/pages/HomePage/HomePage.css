@@ -4,6 +4,7 @@
   margin: 0 auto;
 }
 
+/* CSS for PostsList.jsx */
 img {
   max-width: 100%;
   object-fit: cover;
@@ -25,6 +26,10 @@ div.post {
 div.post div.texts h2 {
   margin: 0;
   font-size: 1.8rem;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  /* text-wrap: balance; */
 }
 
 div.post div.texts a {
@@ -35,7 +40,7 @@ div.post div.texts a {
 div.post p.info {
   margin: 6px 0;
   color: #888;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   font-weight: bold;
   display: flex;
   gap: 10px;
@@ -48,8 +53,11 @@ div.post p.info a.author {
 div.post p.summary {
   height: 136px;
   margin: 4px 0;
-  line-height: 1.75rem;
-  text-overflow: ellipsis;
+  line-height: 1.65rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
   overflow: hidden;
+  text-align: justify;
 }
 

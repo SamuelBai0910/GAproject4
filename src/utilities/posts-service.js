@@ -23,5 +23,6 @@ export async function deletePost(id) {
 
 export async function updatePost(id) {
   const post = await postsAPI.updatePost(id);
+  console.log(post);
   return post;
 }

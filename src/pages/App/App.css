@@ -77,14 +77,14 @@ div.post-page h1 {
 div.post-page time {
   text-align: center;
   display: block;
-  font-size: .7rem;
+  font-size: .9rem;
 }
 
 div.post-page .author {
   text-align: center;
   display: block;
   margin-bottom: 5px;
-  font-size: .7rem;
+  font-size: .9rem;
   font-weight: bold;
 }
 
