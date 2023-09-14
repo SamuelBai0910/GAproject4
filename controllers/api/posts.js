@@ -59,7 +59,9 @@ async function update(req, res) {
   try {
     let post = await Post.findByIdAndUpdate(
       {_id: req.params.id}, 
-      {$set: req.body}
+      {$set: req.body},
+      // Make Mongoose's findOneAndUpdate() Return the Updated Document
+      {returnDocument: 'after'}
       )
     post.save();
     // console.log(post);
