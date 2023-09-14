@@ -1,10 +1,20 @@
-# Project 4
+# Project - 4
 
 
 ## Project Background
-Lorem ipsum dolor sit amet, te doctus iuvaret eos, vel essent facilisi ea. Nam ignota tractatos consulatu ea, eum facete tacimates iracundia te. Sea et omnis constituto. Eu aeque adipisci aliquando duo, sea paulo concludaturque an, adipisci recteque ea qui. At sit enim sapientem, est veri nobis scribentur ex, purto singulis ut sea.
-## What can this Blog do?
-Lorem ipsum dolor sit amet, te doctus iuvaret eos, vel essent facilisi ea. Nam ignota tractatos consulatu ea, eum facete tacimates iracundia te. Sea et omnis constituto. Eu aeque adipisci aliquando duo, sea paulo concludaturque an, adipisci recteque ea qui. At sit enim sapientem, est veri nobis scribentur ex, purto singulis ut sea.
+The application is a user-oriented blogging platform designed to provide users with a place to create, edit, and manage their own blog posts. This application is implemented using the MERN technology stack (MongoDB, Express.js, React, and Node.js).
+## What can this App do?
+User Registration and Login:
+
+Users can create an account, providing basic information and login credentials.
+Registered users can log in to the application using their usernames and passwords.
+
+Manage  Blog Posts:
+
+Registered users can create new blog posts. They can provide a title, content, cover image, username, and post creation time for each post.
+Additionally, users can view, edit, and delete blog posts.
+
+This blog web application aims to provide a user-friendly interface that encourages users to share their thoughts, experiences, and knowledge. It can be used for various types of content creation, including personal blogs, technical articles, travel logs, and more.
 ## Screenshots:
 ### SignUp Page
 ![SignUp Page](https://res.cloudinary.com/dfbujyfrj/image/upload/v1694695571/signup_ffixnu.png)
@@ -15,7 +25,7 @@ Lorem ipsum dolor sit amet, te doctus iuvaret eos, vel essent facilisi ea. Nam i
 ### Create Post Page
 ![Create Post Page](https://res.cloudinary.com/dfbujyfrj/image/upload/v1694695571/create_form_siyc5e.png)
 ### Post Detail Page
-![Post Detail Page](https://res.cloudinary.com/dfbujyfrj/image/upload/v1694695572/PostDetail_q6rrq7.png))
+![Post Detail Page](https://res.cloudinary.com/dfbujyfrj/image/upload/v1694695572/PostDetail_q6rrq7.png)
 ### Edit Post Page
 ![Edit Post Page](https://res.cloudinary.com/dfbujyfrj/image/upload/v1694695572/Edit_Form_dhmgfg.png)
 
@@ -57,3 +67,7 @@ Lorem ipsum dolor sit amet, te doctus iuvaret eos, vel essent facilisi ea. Nam i
 # Getting Started:
 [Click to Run this App](http://localhost:3000/)
 # Next Steps:
+* After logging in, Users can see posts created by all users.
+* Users can only edit and delet the posts they've created.
+* Users can view all the posts created by themselfs in "My Posts"
+* Deploy this App
