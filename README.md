@@ -25,7 +25,7 @@ This blog web application aims to provide a user-friendly interface that encoura
 ### Create Post Page
 ![Create Post Page](https://res.cloudinary.com/dfbujyfrj/image/upload/v1694695571/create_form_siyc5e.png)
 ### Post Detail Page
-![Post Detail Page](https://res.cloudinary.com/dfbujyfrj/image/upload/v1694695572/PostDetail_q6rrq7.png)
+![Post Detail Page](https://res.cloudinary.com/dfbujyfrj/image/upload/v1694699589/PostDetail_amasst.png)
 ### Edit Post Page
 ![Edit Post Page](https://res.cloudinary.com/dfbujyfrj/image/upload/v1694695572/Edit_Form_dhmgfg.png)
 
