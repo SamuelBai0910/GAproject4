@@ -163,6 +163,7 @@ div.edit-row {
 }
 
 .edit-btn {
+  text-decoration: none;
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -193,9 +194,8 @@ div.edit-row {
 }
 
 .edit-btn:active {
-  --_p: 0px;
-  outline-color: var(--color);
-  outline-offset: .05em;
+  background: var(--color);
+  color: #fff;
 }
 
 .edit-btn svg {

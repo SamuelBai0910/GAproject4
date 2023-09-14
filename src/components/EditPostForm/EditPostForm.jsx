@@ -35,7 +35,7 @@ export default function EditPostForm({ post, updatePost, image ,setImage }) {
 
   return(
     <form onSubmit={_handleSubmit}>
-      <h1>Edit Form</h1>
+      <h1 className='form-title'>Edit Form</h1>
       <input  name='title'
               placeholder={'Title'} 
               value={editedPost.title} 

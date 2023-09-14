@@ -46,7 +46,7 @@ export default function PostForm({ addPost, image, setImage }) {
 
   return(
     <form onSubmit={_handleSubmit}>
-      <h1>Create Form</h1>
+      <h1 className='form-title'>Create Form</h1>
       <input  name='title'
               placeholder={'Title'} 
               value={newPost.title} 

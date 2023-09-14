@@ -3,6 +3,10 @@ form {
   margin: 0 auto;
 }
 
+.form-title, button{
+  font-family: 'Raleway', sans-serif;
+}
+
 input, textarea {
   display: block;
   margin-bottom: 5px;
@@ -11,6 +15,7 @@ input, textarea {
   border: 2px solid #ddd;
   border-radius: 5px;
   background-color: #fff;
+  font-family: 'Lato', sans-serif;
 }
 
 .summary_text {
@@ -53,8 +58,7 @@ button:hover {
 }
 
 button:active {
-  --_p: 0px;
-  outline-color: var(--color);
-  outline-offset: .05em;
+  background: var(--color);
+  color: #fff;
 }
 
