@@ -123,7 +123,7 @@ div.delete-row {
   --s: .45em; /* size of the corner */
   --color: #373B44;
   margin-left: 20px;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
   padding: calc(.5em + var(--s)) calc(.9em + var(--s));
   color: var(--color);
   --_p: var(--s);
