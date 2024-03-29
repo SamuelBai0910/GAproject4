@@ -21,7 +21,8 @@ app.use(express.static(path.join(__dirname, "build")));
 // Be sure to mount before routes
 app.use(require("./config/checkToken"));
 
-const port = process.env.PORT || 8000;
+const port = 8000;
+app.set("port", process.env.PORT || 8000);
 
 // Put API routes here, before the "catch all" route
 // hanle stuff with reqired routes if server match the defaul url
