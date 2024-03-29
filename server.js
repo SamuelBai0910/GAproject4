@@ -2,7 +2,6 @@ const express = require("express");
 const path = require("path");
 // const favicon = require("serve-favicon");
 const logger = require("morgan");
-const { createProxyMiddleware } = require("http-proxy-middleware");
 // Always require and configure near the top
 require("dotenv").config();
 // Connect to the database
@@ -30,12 +29,6 @@ app.use("/api/users", require("./routes/api/users"));
 app.use("/api/posts", require("./routes/api/posts"));
 
 // Set the proxy
-app.use(
-  createProxyMiddleware({
-    target: "http://localhost:8000", // server port
-    changeOrigin: true,
-  })
-);
 // The following "catch all" route (note the *) is necessary
 // to return the index.html on all non-AJAX/API requests
 app.get("/*", function (req, res) {
