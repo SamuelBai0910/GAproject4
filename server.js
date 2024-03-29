@@ -29,11 +29,10 @@ app.set("port", process.env.PORT || 8000);
 app.use("/api/users", require("./routes/api/users"));
 app.use("/api/posts", require("./routes/api/posts"));
 
-// Set the proxy
 // The following "catch all" route (note the *) is necessary
 // to return the index.html on all non-AJAX/API requests
 app.get("/*", function (req, res) {
-  res.sendFile(path.join(__dirname, "public", "index.html"));
+  res.sendFile(path.join(__dirname, "build", "index.html"));
 });
 
 app.listen(port, () =>
